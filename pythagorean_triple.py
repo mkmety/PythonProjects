@@ -1,5 +1,5 @@
 print("Welcome to the Pythagorean Triples Checker! \n\n"
-      "You will need to enter in the 3 sides of a triangle to see if the triangle is Pythagorean Triple \n")
+      "You will need to enter in the 3 sides of a triangle to see if the triangle is a Pythagorean Triple \n")
 play_again = True
 
 while play_again:
