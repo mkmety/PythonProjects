@@ -12,5 +12,8 @@ while count < times_thrown:
     count += 1
 counter_list = Counter(results_list)
 
+print("Number     Frequency     %")
+print("--------------------------")
+
 for dice in counter_list:
-    print("{:3}  --  {}  --  {}%".format(dice, counter_list[dice], (counter_list[dice] / times_thrown) * 100))
+    print("{:3}         {:3}       {:3}%".format(dice, counter_list[dice], round((counter_list[dice] / times_thrown) * 100, 4)))
