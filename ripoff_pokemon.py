@@ -1,8 +1,8 @@
 import random
 
-print("Welcome to the rip-off version of Pokemon")
+print("Welcome to the rip-off version of Pokemon\n")
 
-player_character_name = input("Enter your character name: ")
+player_character_name = input("Enter your bad-ass character name: ")
 enemy_character_name = "Russ"
 
 player_hit_points = 100
@@ -37,7 +37,7 @@ while player_hit_points > 0 and enemy_hit_points > 0:
             if enemy_hit_points < 0:
                 enemy_hit_points = 0
                 print("{} has been killed. You win!".format(enemy_character_name))
-            print("{} has {} left.".format(enemy_character_name, enemy_hit_points))
+            print("{} has {} hit points left.".format(enemy_character_name, enemy_hit_points))
         else:
             print(move_one_miss_desc)
             print("{} has {} left.".format(enemy_character_name, enemy_hit_points))
@@ -66,6 +66,7 @@ while player_hit_points > 0 and enemy_hit_points > 0:
             print("You were already at full health. You hurt yourself in confusion")
             player_hit_points = player_hit_points - 5
             print("Your HP is now {}".format(player_hit_points))
-
+    print("\n{} attacks you for 1,000,000. You are fucking dead.".format(enemy_character_name))
+    player_hit_points = 0
 
 
