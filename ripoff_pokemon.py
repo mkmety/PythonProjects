@@ -56,9 +56,9 @@ while player_hit_points > 0 and enemy_hit_points > 0:
     elif next_move == "Heal":
         if player_hit_points < 76:
             player_hit_points = player_hit_points + 25
-            print(("You heal yourself for 25."))
+            print("You heal yourself for 25.")
             print("Your HP is now {}".format(player_hit_points))
-        elif player_hit_points > 75 and player_hit_points < 100:
+        elif 75 > player_hit_points < 100:
             player_hit_points = 100
             print("You healed yourself to max health")
             print("Your HP is now {}".format(player_hit_points))
