@@ -26,6 +26,8 @@ enemy_move_two_name = "Bitch Slap"
 enemy_move_two_desc = "\n{} attempts to bitch slap you.".format(enemy_character_name)
 enemy_move_two_miss_desc = "{} whiffed his bitch slap.".format(enemy_character_name)
 
+enemy_move_three_name = "Heal"
+
 while player_hit_points > 0 and enemy_hit_points > 0:
     move_one_accuracy = random.randint(1, 11)
     move_one_damage = random.randint(18, 26)
@@ -35,7 +37,7 @@ while player_hit_points > 0 and enemy_hit_points > 0:
     move_two_damage = random.randint(10, 36)
     move_two_hit_desc = "You roundhoused {} in the face for {}!".format(enemy_character_name, move_two_damage)
 
-    enemy_move_choice = random.randint(1, 2)
+    enemy_move_choice = random.randint(1, 3)
 
     enemy_move_one_accuracy = random.randint(1, 11)
     enemy_move_one_damage = random.randint(18, 26)
@@ -113,4 +115,18 @@ while player_hit_points > 0 and enemy_hit_points > 0:
         else:
             print(enemy_move_two_miss_desc)
             print("You have {} hit points left.".format(player_hit_points))
-
+    elif next_move == 3:
+        if enemy_hit_points < 76:
+            enemy_hit_points = enemy_hit_points + 25
+            print("{} heals for 25.".format(enemy_character_name))
+            print("{}'s HP is now {}".format(enemy_character_name,  enemy_hit_points))
+        elif 75 > enemy_hit_points < 100:
+            player_hit_points = 100
+            print("{} healed to max health".format(enemy_character_name))
+            print("{}'s HP is now {}".format(enemy_character_name, enemy_hit_points))
+        elif enemy_hit_points == 100:
+            print("{} was already at full health. {} hurt their self in "
+                  "confusion".format(enemy_character_name, enemy_character_name))
+            enemy_hit_points = enemy_hit_points - 5
+            print("{}'s HP is now {}".format(enemy_character_name, enemy_hit_points))
+            
