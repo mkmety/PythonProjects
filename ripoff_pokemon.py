@@ -18,13 +18,25 @@ move_two_miss_desc = "You missed terribly.."
 
 move_three_name = "Heal"
 
+enemy_move_one_name = "Belch"
+enemy_move_one_desc = "\n{} attempts to belch on you.".format(enemy_character_name)
+enemy_move_one_miss_desc = "{} missed his belch.".format(enemy_character_name)
+
 while player_hit_points > 0 and enemy_hit_points > 0:
     move_one_accuracy = random.randint(1, 11)
     move_one_damage = random.randint(18, 26)
     move_one_hit_desc = "You shanked his ass for {}.".format(move_one_damage)
+
     move_two_accuracy = random.randint(1, 11)
     move_two_damage = random.randint(10, 36)
     move_two_hit_desc = "You roundhoused {} in the face for {}!".format(enemy_character_name, move_two_damage)
+
+    enemy_move_choice = random.randint(1, 1)
+
+    enemy_move_one_accuracy = random.randint(1, 11)
+    enemy_move_one_damage = random.randint(18, 26)
+    enemy_move_one_hit_desc = "{} belched directly in your face for {}. " \
+                              "You puke on yourself.".format(enemy_character_name, enemy_move_one_damage)
 
     print("\n" + player_character_name + ", choose your next move.")
     print("\nShank\nRoundhouse\nHeal")
@@ -37,6 +49,7 @@ while player_hit_points > 0 and enemy_hit_points > 0:
             if enemy_hit_points < 0:
                 enemy_hit_points = 0
                 print("{} has been killed. You win!".format(enemy_character_name))
+                break
             print("{} has {} hit points left.".format(enemy_character_name, enemy_hit_points))
         else:
             print(move_one_miss_desc)
@@ -49,6 +62,7 @@ while player_hit_points > 0 and enemy_hit_points > 0:
             if enemy_hit_points < 0:
                 enemy_hit_points = 0
                 print("{} has been killed. You win!".format(enemy_character_name))
+                break
             print("{} has {} hit points left.".format(enemy_character_name, enemy_hit_points))
         else:
             print(move_two_miss_desc)
@@ -66,7 +80,16 @@ while player_hit_points > 0 and enemy_hit_points > 0:
             print("You were already at full health. You hurt yourself in confusion")
             player_hit_points = player_hit_points - 5
             print("Your HP is now {}".format(player_hit_points))
-    print("\n{} attacks you for 1,000,000. You are fucking dead.".format(enemy_character_name))
-    player_hit_points = 0
-
+    if enemy_move_choice == 1:
+        print(enemy_move_one_desc)
+        if enemy_move_one_accuracy > 3:
+            print(enemy_move_one_hit_desc)
+            player_hit_points = player_hit_points - enemy_move_one_damage
+            if player_hit_points < 0:
+                player_hit_points = 0
+                print("You have been killed by {}. You lose!".format(enemy_character_name))
+            print("You have {} hit points left.".format(player_hit_points))
+        else:
+            print(enemy_move_one_miss_desc)
+            print("You have {} hit points left.".format(player_hit_points))
 
