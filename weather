@@ -1,0 +1,11 @@
+import requests
+import time
+
+url = "http://api.openweathermap.org/data/2.5/forecast?id=4385494&units=imperial&APPID=XXXXXXXXXXXXXXXXX"
+response = requests.get(url)
+data = response.json()
+
+print(data)
+print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(data['list'][0]['dt'])))
+print("Current Weather: {}".format(data['list'][0]['main']['temp']))
+print("Current Forecast: {}".format(data['list'][0]['weather'][0]['main']))
